@@ -12,6 +12,8 @@ import java.util.Scanner;
 
 import com.sun.org.apache.bcel.internal.classfile.Field;
 
+import codes.datas.User;
+
 public class MainDrive {
 
 	public static void main(String[] args) {
@@ -111,21 +113,13 @@ public class MainDrive {
 //				String을 int로 변환 => wrapper클래스 (Integer 활용)
 				int userbirthYear =Integer.parseInt(userInfos[2]);
 				
-//				생년을 나이로 변환. => 매년 정확한 나이가 나오도록.
+//				이름/ 폰번 /나이를 가지고 => User객체로 만들자.
+				User user = new User(userName, userPhoneNum, userbirthYear);
 				
-//				캘린더 객체 생성 => 현재 시간이  기본값으로 들어감. 
-				Calendar now = Calendar.getInstance();
+//				만들어낸 user를 출력. => User 클래스의 toString 오보라이딩
+//				양식으로 가공하자.
+				System.out.println(user);
 				
-
-				
-
-//				년도를 => 현재 날짜에서 get(Calendar.Year)로 뽑아내자
-				int userAge = now.get(Calendar.YEAR) - userbirthYear +1;
-				
-//				 세개의 데이터를 가지고 => 양식을 가공 (String format)
-				String userInfoMessage = String.format("%s(%d세) : %s", userName,userAge,userPhoneNum);
-				
-				System.out.println(userInfoMessage);
 				
 			}
 //			while 빠져나옴. : 파일을 다 읽었으니 빠져 나왔따.
